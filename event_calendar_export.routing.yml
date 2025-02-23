@@ -1,0 +1,7 @@
+event_calendar_export.ics_download:
+  path: '/calendar-export/{entity_type}/{entity_id}/ics'
+  defaults:
+    _controller: '\Drupal\event_calendar_export\Controller\CalendarExportController::downloadIcs'
+    _title: 'Download ICS'
+  requirements:
+    _permission: 'access content'

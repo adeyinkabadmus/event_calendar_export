@@ -1,0 +1,26 @@
+{#
+/**
+ * @file
+ * Default theme implementation for calendar export links.
+ *
+ * Available variables:
+ * - ics_url: The URL to download the ICS file.
+ * - google_url: The URL to add event to Google Calendar.
+ * - show_ics: Whether to show the ICS download link.
+ * - show_google: Whether to show the Google Calendar link.
+ * - ics_text: Custom text for ICS link.
+ * - google_text: Custom text for Google Calendar link.
+ */
+#}
+<div class="calendar-export-links">
+  {% if show_ics and ics_url %}
+    <a href="{{ ics_url }}" class="calendar-export-ics button" title="{{ 'Download ICS file'|t }}">
+      <i class="fas fa-calendar-alt"></i> {{ ics_text }}
+    </a>
+  {% endif %}
+  {% if show_google and google_url %}
+    <a href="{{ google_url }}" class="calendar-export-google button" target="_blank" title="{{ 'Add to Google Calendar'|t }}">
+      <i class="fab fa-google"></i> {{ google_text }}
+    </a>
+  {% endif %}
+</div>
