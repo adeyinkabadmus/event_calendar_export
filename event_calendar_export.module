@@ -1,0 +1,37 @@
+<?php
+
+/**
+ * @file
+ * Contains event_calendar_export.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function event_calendar_export_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.event_calendar_export':
+      return '<p>' . t('Provides fields for exporting events to various calendar formats.') . '</p>';
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function event_calendar_export_theme() {
+  return [
+    'calendar_export_links' => [
+      'variables' => [
+        'ics_url' => NULL,
+        'google_url' => NULL,
+        'show_ics' => TRUE,
+        'show_google' => TRUE,
+        'ics_text' => t('Download ICS'),
+        'google_text' => t('Add to Google Calendar'),
+      ],
+      'template' => 'calendar-export-links',
+    ],
+  ];
+}
